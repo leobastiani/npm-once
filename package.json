@@ -1,11 +1,32 @@
 {
   "name": "@leobastiani/once",
-  "module": "index.ts",
   "version": "0.0.1-wip01",
+  "description": "execute a function only once and cache but it has a reset function for testing",
+  "repository": "leobastiani/npm-once",
+  "license": "MIT",
+  "author": {
+    "name": "Leonardo Guarnieri de Bastiani",
+    "email": "leogbastiani@gmail.com",
+    "url": "https://github.com/leobastiani"
+  },
+  "scripts": {
+    "test": "node --test nonProd.test.js && NODE_ENV=production node --test prod.test.js"
+  },
+  "files": [
+    "index.js",
+    "once.js",
+    "reset.js",
+    "index.d.ts"
+  ],
+  "exports": "./index.js",
+  "module": "index.ts",
   "sideEffects": false,
   "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest",
-    "typescript": "^5.0.0"
-  }
+  "keywords": [
+    "function",
+    "once",
+    "one",
+    "single",
+    "cached"
+  ]
 }
