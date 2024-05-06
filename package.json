@@ -2,7 +2,10 @@
   "name": "@leobastiani/once",
   "version": "0.0.1-wip01",
   "description": "execute a function only once and cache but it has a reset function for testing",
-  "repository": "leobastiani/npm-once",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leobastiani/npm-once.git"
+  },
   "license": "MIT",
   "author": {
     "name": "Leonardo Guarnieri de Bastiani",
