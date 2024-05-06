@@ -2,11 +2,12 @@
 
 export const resets = new Set();
 
-function resetAll() {
+export function resetAll() {
   if (process.env.NODE_ENV !== "production") {
-    while (resets.length) {
-      resets.pop()();
+    for (const fn of resets) {
+      fn();
     }
+    resets.clear();
   }
 }
 
@@ -26,7 +27,9 @@ export function once<T extends (...args: any[]) => any>(fn: T): T {
       } catch (e) {
         result = { error: e };
       }
-      fn = undefined;
+      if (process.env.NODE_ENV === "production") {
+        fn = undefined;
+      }
     }
     if (result.error) {
       throw result.error;
