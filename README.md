@@ -1,15 +1,5 @@
 # once
 
-To install dependencies:
+execute a function only once and cache but it has a reset function for testing
 
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.1.1. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+See examples at [nonProd.test.js](nonProd.test.js) and [prod.test.js](prod.test.js)
