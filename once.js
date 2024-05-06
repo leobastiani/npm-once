@@ -1,23 +1,11 @@
-// @ts-nocheck
+import { resets } from "./reset.js";
 
-export const resets = new Set();
-
-export function resetAll() {
-  if (process.env.NODE_ENV !== "production") {
-    for (const fn of resets) {
-      fn();
-    }
-    resets.clear();
-  }
-}
-
-export function once<T extends (...args: any[]) => any>(fn: T): T {
-  let result: { return: any } | { error: any } | undefined;
+export default function once(fn) {
+  let result;
   const reset = () => {
     result = undefined;
   };
-
-  return ((...args: any[]) => {
+  return (...args) => {
     if (!result) {
       if (process.env.NODE_ENV !== "production") {
         resets.add(reset);
@@ -35,5 +23,5 @@ export function once<T extends (...args: any[]) => any>(fn: T): T {
       throw result.error;
     }
     return result.return;
-  }) as T;
+  };
 }

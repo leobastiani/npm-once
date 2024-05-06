@@ -1,7 +1,8 @@
 // @ts-check
 
-import { mock, test } from "node:test";
 import assert from "node:assert";
+import { mock, test } from "node:test";
+import { resetAll } from "./index.js";
 import once from "./index.js";
 
 test("once", () => {
@@ -10,4 +11,10 @@ test("once", () => {
   onced();
   onced();
   assert.strictEqual(myMock.mock.callCount(), 1);
+  assert.strictEqual(onced(), 42);
+
+  resetAll();
+  onced();
+  assert.strictEqual(myMock.mock.callCount(), 2);
+  assert.strictEqual(onced(), 42);
 });
