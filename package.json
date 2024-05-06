@@ -1,7 +1,7 @@
 {
   "name": "@leobastiani/once",
   "private": false,
-  "version": "0.0.1-wip02",
+  "version": "1.0.0",
   "description": "execute a function only once and cache but it has a reset function for testing",
   "repository": {
     "type": "git",
