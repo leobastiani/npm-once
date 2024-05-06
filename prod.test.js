@@ -11,3 +11,14 @@ test("once", () => {
   onced();
   assert.strictEqual(myMock.mock.callCount(), 1);
 });
+
+test("errored", () => {
+  const error = new Error();
+  const myMock = mock.fn(() => {
+    throw error;
+  });
+  const onced = once(myMock);
+  assert.throws(() => onced(), error);
+  assert.throws(() => onced(), error);
+  assert.strictEqual(myMock.mock.callCount(), 1);
+});
